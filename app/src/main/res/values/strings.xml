@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shopping Manager</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Form_Prix">Prix</string>
+    <string name="Form_Monnaie">€</string>
+    <string name="Form_Button_A_Acheter">A acheter</string>
+    <string name="Form_Button_Acheter">Acheté</string>
+    <string name="ToastValider">Url de article</string>
+    <string name="Form_Description">Description</string>
+    <string name="Form_Article">article</string>
+    <string name="title_activity_main">Liste d\'article</string>
+    <string name="title_activity_liste">Liste des articles</string>
+    <string name="title_activity_create">CreateActivity</string>
+    <string name="Form_Create_Article">Nom de l\'article</string>
+    <string name="Form_Create_Monnaie">Monnaie</string>
+    <string name="Form_Note">Note</string>
+    <string name="Form_Create_Button_Ajouter">Ok</string>
+    <string name="default_monnaie">€</string>
+    <string name="article_delete">Article supprimé</string>
+    <string name="action_mail">mail</string>
+    <string name="return_dao">Sauvegardé</string>
+    <string name="description_provider_read">Demande de permission de lire les informations via le provider Article</string>
+    <string name="description_provider_write">Demande de permission d\'écrire les informations via le provider Article</string>
+    <string name="permission_required">Les permissions sont requises pour faire fonctionner l\'application</string>
+    <string name="ok">OK</string>
+</resources>

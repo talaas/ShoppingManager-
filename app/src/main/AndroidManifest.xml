@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ecole.eni.fr.shoppingManager">
+
+    <!-- Création des permissions -->
+    <permission android:name="articleprovider.READ"
+        android:label="Accéder en lecture au provider Article"
+        android:description="@string/description_provider_read"
+        android:protectionLevel="dangerous" />
+
+    <permission android:name="articleprovider.WRITE"
+        android:label="Accéder en écriture au provider Article"
+        android:description="@string/description_provider_write"
+        android:protectionLevel="dangerous" />
+
+    <!-- Demande des permissions -->
+    <uses-permission android:name="articleprovider.READ" />
+    <uses-permission android:name="articleprovider.WRITE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="ecole.eni.fr.shoppingManager.ArticleDetailActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="ecole.eni.fr.shoppingManager.ListeActivity"></activity>
+        <activity
+            android:name="ecole.eni.fr.shoppingManager.ListeActivity"
+            android:label="@string/title_activity_liste">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ecole.eni.fr.shoppingManager.CreateOrEditActivity"
+            android:label="@string/title_activity_create"></activity>
+
+        <provider
+            android:name="ecole.eni.fr.shoppingManager.provider.ArticleProvider"
+            android:authorities="fr.eni.ecole.article.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:writePermission="articleprovider.WRITE"
+            android:readPermission="articleprovider.READ"
+            />
+    </application>
+
+</manifest>
