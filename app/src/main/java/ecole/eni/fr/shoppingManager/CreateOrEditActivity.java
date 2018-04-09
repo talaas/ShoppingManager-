@@ -13,14 +13,14 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import ecole.eni.fr.shoppingManager.beans.ArticleRef;
-import ecole.eni.fr.shoppingManager.dal.ArticleDAL;
+import ecole.eni.fr.shoppingManager.dal.ArticleRefDAL;
 
 
 public class CreateOrEditActivity extends AppCompatActivity {
 
     private int articleId;
     private ArticleRef nouvelArticle;
-    private ArticleDAL articleDAL;
+    private ArticleRefDAL articleDAL;
     private EditText editName;
     private EditText editDescription;
     private EditText editPrice;
@@ -44,7 +44,7 @@ public class CreateOrEditActivity extends AppCompatActivity {
         rbNote = (RatingBar) findViewById(R.id.Form_Create_Bar_Note);
         progress = (ProgressBar) findViewById(R.id.Form_Create_progressBar);
 
-        articleDAL = new ArticleDAL(CreateOrEditActivity.this);
+        articleDAL = new ArticleRefDAL(CreateOrEditActivity.this);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class CreateOrEditActivity extends AppCompatActivity {
         Float note = rbNote.getRating();
         Float price = Float.valueOf(editPrice.getText().toString());
         String url = editUrl.getText().toString();
-        nouvelArticle = new ArticleRef(name, price, description, note, url, false);
+        nouvelArticle = new ArticleRef(name, price, description, url);
         InsertOrUpdate majDAO = new InsertOrUpdate();
         majDAO.execute();
 
@@ -112,11 +112,10 @@ public class CreateOrEditActivity extends AppCompatActivity {
     }
 
     public void chargeArticle(ArticleRef article){
-        editName.setText(article.getName());
+        editName.setText(article.getNom());
         editDescription.setText(article.getDescription());
-        rbNote.setRating(article.getRate());
-        editPrice.setText(article.getPrice().toString());
-        editUrl.setText(article.getUrl());
+        editPrice.setText(article.getPrix().toString());
+        editUrl.setText(article.getImg());
 
         this.enableAll();
 

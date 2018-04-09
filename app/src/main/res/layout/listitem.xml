@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -8,38 +10,54 @@
     android:layout_marginBottom="@dimen/activity_vertical_margin">
 
 
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/ListArticleName" />
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:id="@+id/ListAchete"/>
-        </RelativeLayout>
-    </LinearLayout>
-    <LinearLayout
+    <TextView
+        android:id="@+id/listArticleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            android:id="@+id/ListArticlePrice" />
-    </LinearLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/ListArticleDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/listArticleName"
+        android:text="Description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp"
+        tools:text="Desc" />
+
+    <TextView
+        android:id="@+id/ListAchete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/listArticleName"
+        android:layout_alignBottom="@+id/listArticleName"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:text="IsCheck" />
+
+    <TextView
+        android:id="@+id/ListArticlePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignEnd="@+id/ListAchete"
+        android:layout_alignRight="@+id/ListAchete"
+        android:layout_below="@+id/listArticleName"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="16dp"
+        android:text="Prix"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

@@ -19,9 +19,7 @@ import ecole.eni.fr.shoppingManager.beans.ArticleRef;
  * Created by pbontempi2017 on 13/06/2017.
  */
 public class ArticleAdapter extends ArrayAdapter<ArticleRef> {
-//testaaaaaaa
 
-    private Double TAMERE;
     private final List<ArticleRef> articles;
     private final Context context;
     private final int ressourceId;
@@ -45,9 +43,10 @@ public class ArticleAdapter extends ArrayAdapter<ArticleRef> {
 
             convertView = inflater.inflate(ressourceId, parent, false);
 
-            holder.libelle = (TextView) convertView.findViewById(R.id.ListArticleName);
+            holder.nom = (TextView) convertView.findViewById(R.id.ListArticleName);
             holder.prix = (TextView) convertView.findViewById(R.id.ListArticlePrice);
-            holder.achete = (TextView) convertView.findViewById(R.id.ListAchete);
+            holder.description = (TextView) convertView.findViewById(R.id.ListArticleDescription);
+            holder.img = (TextView) convertView.findViewById(R.id.ListArticleImg);
 
             convertView.setTag(holder);
         }
@@ -57,17 +56,11 @@ public class ArticleAdapter extends ArrayAdapter<ArticleRef> {
         }
         ArticleRef article = articles.get(position);
 
-        holder.libelle.setText(article.getName());
-        holder.prix.setText(article.getPrice().toString() + " €");
+        holder.nom.setText(article.getNom());
+        holder.prix.setText(article.getPrix().toString() + " €");
+        holder.description.setText(article.getDescription().toString() + " €");
+        holder.img.setText(article.getImg().toString() + " €");
 
-        if(article.getBought())
-        {
-            holder.achete.setText(R.string.Form_Button_Acheter);
-        }
-        else
-        {
-            holder.achete.setText("");
-        }
         return convertView;
     }
 
@@ -75,8 +68,9 @@ public class ArticleAdapter extends ArrayAdapter<ArticleRef> {
      * Class static permet de mettre en cache les widgets
      */
     static class ViewHolder{
-        TextView libelle;
+        TextView nom;
         TextView prix;
-        TextView achete;
+        TextView description;
+        TextView img;
     }
 }

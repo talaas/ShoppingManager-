@@ -14,13 +14,13 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import ecole.eni.fr.shoppingManager.beans.ArticleRef;
-import ecole.eni.fr.shoppingManager.dal.ArticleDAL;
+import ecole.eni.fr.shoppingManager.dal.ArticleRefDAL;
 
 
 public class ArticleDetailActivity extends AppCompatActivity {
     String url;
     private int articleId;
-    private ArticleDAL dal;
+    private ArticleRefDAL dal;
     private ArticleRef article;
 
     private TextView textName ;
@@ -35,7 +35,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_article_detail);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(android.R.drawable.btn_star);
-        dal = new ArticleDAL(ArticleDetailActivity.this);
+        dal = new ArticleRefDAL(ArticleDetailActivity.this);
     }
 
     @Override
@@ -66,7 +66,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 if (fromUser == true) {
-                    article.setRate(rating);
                     UpdateArticle updateThread = new UpdateArticle();
                     updateThread.execute();
                 }
@@ -82,7 +81,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
     public void onClickButtonUrl(View view) {
 //        Toast.makeText(ArticleDetailActivity.this, ArticleDAL.getArticle(articleId).getUrl(), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(dal.getArticle(articleId).getUrl()));
+        intent.setData(Uri.parse(dal.getArticle(articleId).getImg()));
 
         // Test si l'activité est connu
         if (intent.resolveActivity(getPackageManager()) != null)
@@ -115,7 +114,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
     }
 
     public void onClickBuyingButton(View view) {
-        article.setBought(((ToggleButton) view).isChecked());
         UpdateArticle updateThread = new UpdateArticle();
         updateThread.execute();
     }
@@ -148,8 +146,8 @@ public class ArticleDetailActivity extends AppCompatActivity {
                 if (id == R.id.action_mail) {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:0228223003"));
 
-                    String text = "Pour me faire un cadeau, tu peux m'acheter ça : " + dal.getArticle(articleId).getName()
-                            +". Cela ne coute que "+ dal.getArticle(articleId).getPrice() + " euros et cela me fera vraiment plaisir :) Merci !";
+                    String text = "Pour me faire un cadeau, tu peux m'acheter ça : " + dal.getArticle(articleId).getNom()
+                            +". Cela ne coute que "+ dal.getArticle(articleId).getPrix() + " euros et cela me fera vraiment plaisir :) Merci !";
                     intent.putExtra("sms_body", text);
                     startActivity(intent);
                     return true;
@@ -244,13 +242,12 @@ public class ArticleDetailActivity extends AppCompatActivity {
 
         this.article = art;
 
-        textName.setText(article.getName());
+        textName.setText(article.getNom());
 
         textDescription.setText(article.getDescription());
-        textPrice.setText(String.valueOf(article.getPrice()));
-        rateBar.setRating(article.getRate());
-        boughtButton.setChecked(article.getBought());
-        url = article.getUrl();
+        textPrice.setText(String.valueOf(article.getPrix()));
+        //textPrice.setText(String.valueOf(article.getDescription()));
+        url = article.getImg();
 
     }
 }
