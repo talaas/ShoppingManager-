@@ -21,6 +21,7 @@ import ecole.eni.fr.shoppingManager.beans.ArticleRef;
 public class ArticleAdapter extends ArrayAdapter<ArticleRef> {
 //testaaaaaaa
 
+    private Double TAMERE;
     private final List<ArticleRef> articles;
     private final Context context;
     private final int ressourceId;

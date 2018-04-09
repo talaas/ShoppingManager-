@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ShoppingManager-.iml" filepath="$PROJECT_DIR$/.idea/ShoppingManager-.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShoppingManager.iml" filepath="$PROJECT_DIR$/ShoppingManager.iml" />
+      <module fileurl="file://C:\Users\lnorjoux2016\AndroidStudioProjects\ShoppingManager\.idea\ShoppingManager-.iml" filepath="C:\Users\lnorjoux2016\AndroidStudioProjects\ShoppingManager\.idea\ShoppingManager-.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
