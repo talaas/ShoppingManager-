@@ -5,7 +5,7 @@ package ecole.eni.fr.shoppingManager.beans;
  */
 
 public class ItemListe {
-//TODO lol
+
     private int id;
     private int qte;
     private boolean isInTheCaddie;

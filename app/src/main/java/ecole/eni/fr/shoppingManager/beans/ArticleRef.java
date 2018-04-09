@@ -11,6 +11,13 @@ public class ArticleRef implements Parcelable {
     private String description;
     private String img;
 
+    public ArticleRef(String nom, Float prix, String description, String img) {
+        this.nom = nom;
+        this.prix = prix;
+        this.description = description;
+        this.img = img;
+    }
+
     public ArticleRef(Integer id, String nom, Float prix, String description, String img) {
         this.id = id;
         this.nom = nom;

@@ -55,7 +55,7 @@ public class ArticleRefDAL {
                 Float prix = cursor.getFloat(cursor.getColumnIndex("PRIX"));
                 String description = cursor.getString(cursor.getColumnIndex("DESCRIPTION"));
                 String img = cursor.getString(cursor.getColumnIndex("IMG"));
-                articles.add(new ArticleRef(id, nom, prix, description, img));
+                articles.add(new ArticleRef(nom, prix, description, img));
             }while (cursor.moveToNext());
 
             cursor.close();
