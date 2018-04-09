@@ -19,7 +19,7 @@ import ecole.eni.fr.shoppingManager.beans.ArticleRef;
  * Created by pbontempi2017 on 13/06/2017.
  */
 public class ArticleAdapter extends ArrayAdapter<ArticleRef> {
-//test
+//testa
 
     private final List<ArticleRef> articles;
     private final Context context;
