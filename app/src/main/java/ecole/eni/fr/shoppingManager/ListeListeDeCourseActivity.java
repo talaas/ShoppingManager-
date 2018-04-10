@@ -1,5 +1,6 @@
 package ecole.eni.fr.shoppingManager;
 
+import android.content.Intent;
 import android.graphics.Movie;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -61,6 +62,10 @@ public class ListeListeDeCourseActivity extends AppCompatActivity {
         @Override
         public void onClick(View view, int position) {
             ListeDeCourse movie = movieList.get(position);
+
+            Intent intention = new Intent(ListeListeDeCourseActivity.this, activity_list_main.class);
+            startActivity(intention);
+
             Toast.makeText(getApplicationContext(), movie.getNomListe() + " is selected!", Toast.LENGTH_SHORT).show();
         }
 
@@ -73,6 +78,10 @@ public class ListeListeDeCourseActivity extends AppCompatActivity {
     prepareMovieData();
 }
 
+    public void onClickAjouterButton(View view) {
+        Intent intent = new Intent(ListeListeDeCourseActivity.this, CreateOrEditActivity.class);
+        startActivity(intent);
+    }
         /**
          * Prepares sample data to provide data set to adapter
          */

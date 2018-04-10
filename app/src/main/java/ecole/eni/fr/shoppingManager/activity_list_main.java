@@ -1,4 +1,4 @@
-package com.example.lnorjoux2016.shoppingmanager;
+package ecole.eni.fr.shoppingManager;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

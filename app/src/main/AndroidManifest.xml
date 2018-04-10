@@ -25,9 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.example.lnorjoux2016.shoppingmanager.activity_list_main">
+        <activity android:name=".activity_list_main"/>
 
-        </activity>
+        <activity android:name=".CreateOrEditActivity"/>
 
         <provider
             android:name=".provider.ArticleRefProvider"
