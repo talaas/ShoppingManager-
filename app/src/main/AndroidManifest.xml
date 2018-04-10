@@ -3,15 +3,14 @@
     package="ecole.eni.fr.shoppingManager">
 
     <!-- Création des permissions -->
-    <permission
-        android:name="articleprovider.READ"
-        android:description="@string/description_provider_read"
+    <permission android:name="articleprovider.READ"
         android:label="Accéder en lecture au provider Article"
+        android:description="@string/description_provider_read"
         android:protectionLevel="dangerous" />
-    <permission
-        android:name="articleprovider.WRITE"
-        android:description="@string/description_provider_write"
+
+    <permission android:name="articleprovider.WRITE"
         android:label="Accéder en écriture au provider Article"
+        android:description="@string/description_provider_write"
         android:protectionLevel="dangerous" />
 
     <!-- Demande des permissions -->
@@ -25,6 +24,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name="com.example.lnorjoux2016.shoppingmanager.activity_list_main">
+
+        </activity>
 
         <provider
             android:name=".provider.ArticleRefProvider"
@@ -45,5 +48,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>

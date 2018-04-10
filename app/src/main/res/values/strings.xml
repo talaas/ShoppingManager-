@@ -25,5 +25,6 @@
     <string name="description_provider_write">Demande de permission d\'écrire les informations via le provider Article</string>
     <string name="permission_required">Les permissions sont requises pour faire fonctionner l\'application</string>
     <string name="ok">OK</string>
+    <string name="title_activity_list_main">listMain</string>
     <string name="title_activity_liste_liste_de_course">ListeListeDeCourseActivity</string>
 </resources>
