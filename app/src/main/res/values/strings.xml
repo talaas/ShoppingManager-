@@ -13,7 +13,7 @@
     <string name="title_activity_main">Liste d\'article</string>
     <string name="title_activity_liste">Liste des articles</string>
     <string name="title_activity_create">CreateActivity</string>
-    <string name="Form_Create_Article">Nom de l\'article</string>
+    <string name="Form_Create_Liste">Nom de la liste de courses</string>
     <string name="Form_Create_Monnaie">Monnaie</string>
     <string name="Form_Note">Note</string>
     <string name="Form_Create_Button_Ajouter">Ok</string>

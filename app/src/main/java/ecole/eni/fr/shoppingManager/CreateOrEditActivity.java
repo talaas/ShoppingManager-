@@ -7,10 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Date;
 
 import ecole.eni.fr.shoppingManager.beans.ArticleRef;
 import ecole.eni.fr.shoppingManager.dal.ArticleRefDAL;
@@ -21,11 +25,9 @@ public class CreateOrEditActivity extends AppCompatActivity {
     private int articleId;
     private ArticleRef nouvelArticle;
     private ArticleRefDAL articleDAL;
-    private EditText editName;
-    private EditText editDescription;
-    private EditText editPrice;
-    private EditText editUrl;
-    private RatingBar rbNote;
+    private TextView editName;
+    private TextView date;
+
     private ProgressBar progress;
 
 
@@ -35,14 +37,9 @@ public class CreateOrEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_or_edit);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(android.R.drawable.btn_star);
 
-        editName = (EditText) findViewById(R.id.Form_Create_Edit_Label);
-        editDescription = (EditText) findViewById(R.id.Form_Create_Edit_Description);
-        editPrice = (EditText) findViewById(R.id.Form_Create_Edit_Price);
-        editUrl = (EditText) findViewById(R.id.Form_Create_Edit_Url);
-        rbNote = (RatingBar) findViewById(R.id.Form_Create_Bar_Note);
-        progress = (ProgressBar) findViewById(R.id.Form_Create_progressBar);
+        editName = (TextView) findViewById(R.id.Form_Create_Edit_Label);
+        date = (TextView) findViewById(R.id.Form_Create_Edit_Date);
 
         articleDAL = new ArticleRefDAL(CreateOrEditActivity.this);
     }
@@ -73,10 +70,7 @@ public class CreateOrEditActivity extends AppCompatActivity {
     public void disableAll()
     {
         editName.setEnabled(false);
-        editDescription.setEnabled(false);
-        rbNote.setEnabled(false);
-        editPrice.setEnabled(false);
-        editUrl.setEnabled(false);
+        date.setEnabled(false);
 
         progress.setVisibility(View.VISIBLE);
     }
@@ -90,10 +84,7 @@ public class CreateOrEditActivity extends AppCompatActivity {
 
     private void enableAll(){
         editName.setEnabled(true);
-        editDescription.setEnabled(true);
-        rbNote.setEnabled(true);
-        editPrice.setEnabled(true);
-        editUrl.setEnabled(true);
+        date.setEnabled(true);
 
         progress.setVisibility(View.GONE);
     }
@@ -106,6 +97,19 @@ public class CreateOrEditActivity extends AppCompatActivity {
 //        editUrl.setText(article.getUrl());
 
         this.enableAll();
+
+    }
+
+    public void onClickButtonAjouter(View view) {
+// TODO
+//        String name = editName.getText().toString();
+//        String description = editDescription.getText().toString();
+//        Float note = rbNote.getRating();
+//        Float price = Float.valueOf(editPrice.getText().toString());
+//        String url = editUrl.getText().toString();
+//        nouvelArticle = new Article(name, price, description, note, url, false);
+//        InsertOrUpdate majDAO = new InsertOrUpdate();
+//        majDAO.execute();
 
     }
 

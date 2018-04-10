@@ -12,11 +12,10 @@ public class ItemListe {
     private float prixTotal;
     private ArticleRef article;
 
-    public ItemListe(int id, int qte, boolean isInTheCaddie, float prixTotal, ArticleRef article) {
-        this.id = id;
+    public ItemListe(int qte, boolean isInTheCaddie, ArticleRef article) {
         this.qte = qte;
         this.isInTheCaddie = isInTheCaddie;
-        this.prixTotal = prixTotal;
+        this.prixTotal = article.getPrix() * qte;
         this.article = article;
     }
 

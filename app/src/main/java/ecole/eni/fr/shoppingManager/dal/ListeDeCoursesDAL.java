@@ -55,7 +55,7 @@ public class ListeDeCoursesDAL {
                 String nomListe = cursor.getString(cursor.getColumnIndex("NOMLISTE"));
                 Float prixTotal = cursor.getFloat(cursor.getColumnIndex("PRIXTOTAL"));
                 Date date = new Date(cursor.getString(cursor.getColumnIndex("DATE")));
-                listeDeCourses.add(new ListeDeCourse(prixTotal, date, nomListe));
+                //listeDeCourses.add(new ListeDeCourse(prixTotal, date, nomListe));
             }while (cursor.moveToNext());
 
             cursor.close();

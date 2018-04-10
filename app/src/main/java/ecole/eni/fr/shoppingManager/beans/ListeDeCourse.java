@@ -18,11 +18,15 @@ public class ListeDeCourse {
     private Date dateCourses;
     private String nomListe;
 
-    public ListeDeCourse(float prixTotal, Date dateCourses, String nomListe) {
-        super();
-        this.prixTotal = prixTotal;
+    public ListeDeCourse(List<ItemListe> articles, Date dateCourses, String nomListe) {
+        this.articles = articles;
         this.dateCourses = dateCourses;
         this.nomListe = nomListe;
+
+        this.prixTotal = 0;
+        for(ItemListe a : articles) {
+            this.prixTotal += a.getPrixTotal();
+        }
     }
 
     public int getId() {

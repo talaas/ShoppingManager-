@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.List;
 
 import ecole.eni.fr.shoppingManager.adapter.ListeDeCourseAdapter;
+import ecole.eni.fr.shoppingManager.beans.ArticleRef;
+import ecole.eni.fr.shoppingManager.beans.ItemListe;
 import ecole.eni.fr.shoppingManager.beans.ListeDeCourse;
 
 public class ListeListeDeCourseActivity extends AppCompatActivity {
@@ -87,24 +89,62 @@ public class ListeListeDeCourseActivity extends AppCompatActivity {
          */
     private void prepareMovieData() {
 
-        ListeDeCourse liste1 = new ListeDeCourse(12.2f, new Date(), "LENOM1");
+        ArticleRef article1 = new ArticleRef("NOMARTICLE1", 1.11f, "LADESCRIPTION", "img");
+        ArticleRef article2 = new ArticleRef("NOMARTICLE2", 2.22f, "LADESCRIPTION", "img");
+        ArticleRef article3 = new ArticleRef("NOMARTICLE3", 3.33f, "LADESCRIPTION", "img");
+        ArticleRef article4 = new ArticleRef("NOMARTICLE4", 4.44f, "LADESCRIPTION", "img");
+        ArticleRef article5 = new ArticleRef("NOMARTICLE5", 5.55f, "LADESCRIPTION", "img");
+        ArticleRef article6 = new ArticleRef("NOMARTICLE6", 6.66f, "LADESCRIPTION", "img");
+        ArticleRef article7 = new ArticleRef("NOMARTICLE7", 7.77f, "LADESCRIPTION", "img");
+        ArticleRef article8 = new ArticleRef("NOMARTICLE8", 8.88f, "LADESCRIPTION", "img");
+        ArticleRef article9 = new ArticleRef("NOMARTICLE9", 9.99f, "LADESCRIPTION", "img");
+
+        ItemListe item1 = new ItemListe(1, false, article1);
+        ItemListe item2 = new ItemListe(1, false, article2);
+        ItemListe item3 = new ItemListe(1, false, article3);
+        ItemListe item4 = new ItemListe(1, false, article4);
+        ItemListe item5 = new ItemListe(1, false, article5);
+        ItemListe item6 = new ItemListe(1, false, article6);
+        ItemListe item7 = new ItemListe(1, false, article7);
+        ItemListe item8 = new ItemListe(1, false, article8);
+        ItemListe item9 = new ItemListe(1, false, article9);
+
+        List<ItemListe> itemsListe1 = new ArrayList<>();
+        List<ItemListe> itemsListe2 = new ArrayList<>();
+        List<ItemListe> itemsListe3 = new ArrayList<>();
+        List<ItemListe> itemsListe4 = new ArrayList<>();
+
+        itemsListe1.add(item1);
+        itemsListe1.add(item2);
+        itemsListe1.add(item3);
+
+        itemsListe2.add(item1);
+        itemsListe2.add(item4);
+        itemsListe2.add(item5);
+
+        itemsListe3.add(item5);
+        itemsListe3.add(item6);
+        itemsListe3.add(item7);
+
+        itemsListe4.add(item6);
+        itemsListe4.add(item8);
+        itemsListe4.add(item9);
+
+        // 6.66
+        ListeDeCourse liste1 = new ListeDeCourse(itemsListe1, new Date(), "LENOM1");
         movieList.add(liste1);
-        ListeDeCourse liste2 = new ListeDeCourse(12.2f, new Date(), "LENOM2");
+
+        // 11.1
+        ListeDeCourse liste2 = new ListeDeCourse(itemsListe2, new Date(), "LENOM2");
         movieList.add(liste2);
-        ListeDeCourse liste3 = new ListeDeCourse(12.2f, new Date(), "LENOM3");
+
+        // 19.98
+        ListeDeCourse liste3 = new ListeDeCourse(itemsListe3, new Date(), "LENOM3");
         movieList.add(liste3);
-        ListeDeCourse liste4 = new ListeDeCourse(12.2f, new Date(), "LENOM4");
+
+        // 25.53 TODO arrondi
+        ListeDeCourse liste4 = new ListeDeCourse(itemsListe4, new Date(), "LENOM4");
         movieList.add(liste4);
-        ListeDeCourse liste5 = new ListeDeCourse(12.2f, new Date(), "LENOM5");
-        movieList.add(liste5);
-        ListeDeCourse liste6 = new ListeDeCourse(12.2f, new Date(), "LENOM6");
-        movieList.add(liste6);
-        ListeDeCourse liste7 = new ListeDeCourse(12.2f, new Date(), "LENOM7");
-        movieList.add(liste7);
-        ListeDeCourse liste8 = new ListeDeCourse(12.2f, new Date(), "LENOM8");
-        movieList.add(liste8);
-        ListeDeCourse liste9 = new ListeDeCourse(12.2f, new Date(), "LENOM9");
-        movieList.add(liste9);
 
         // notify adapter about data set changes
         // so that it will render the list with new data
