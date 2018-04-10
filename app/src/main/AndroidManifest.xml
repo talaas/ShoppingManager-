@@ -3,14 +3,15 @@
     package="ecole.eni.fr.shoppingManager">
 
     <!-- Création des permissions -->
-    <permission android:name="articleprovider.READ"
-        android:label="Accéder en lecture au provider Article"
+    <permission
+        android:name="articleprovider.READ"
         android:description="@string/description_provider_read"
+        android:label="Accéder en lecture au provider Article"
         android:protectionLevel="dangerous" />
-
-    <permission android:name="articleprovider.WRITE"
-        android:label="Accéder en écriture au provider Article"
+    <permission
+        android:name="articleprovider.WRITE"
         android:description="@string/description_provider_write"
+        android:label="Accéder en écriture au provider Article"
         android:protectionLevel="dangerous" />
 
     <!-- Demande des permissions -->
@@ -24,31 +25,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:name=".provider.ArticleRefProvider"
+            android:authorities="fr.eni.ecole.article.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="articleprovider.READ"
+            android:writePermission="articleprovider.WRITE" />
+
         <activity
-            android:name="ecole.eni.fr.shoppingManager.ArticleDetailActivity"
-            android:label="@string/app_name"
-            android:parentActivityName="ecole.eni.fr.shoppingManager.ListeActivity"></activity>
-        <activity
-            android:name="ecole.eni.fr.shoppingManager.ListeActivity"
-            android:label="@string/title_activity_liste">
+            android:name=".ListeListeDeCourseActivity"
+            android:label="@string/title_activity_liste_liste_de_course"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="ecole.eni.fr.shoppingManager.CreateOrEditActivity"
-            android:label="@string/title_activity_create"></activity>
-
-        <provider
-            android:name="ecole.eni.fr.shoppingManager.provider.ArticleProvider"
-            android:authorities="fr.eni.ecole.article.provider"
-            android:enabled="true"
-            android:exported="true"
-            android:writePermission="articleprovider.WRITE"
-            android:readPermission="articleprovider.READ"
-            />
     </application>
 
 </manifest>

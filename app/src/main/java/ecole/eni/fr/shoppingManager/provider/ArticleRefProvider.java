@@ -7,17 +7,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
-public class ArticleProvider extends ContentProvider {
+public class ArticleRefProvider extends ContentProvider {
 
-    private ArticleHelper dbHelper;
+    private ArticleRefHelper dbHelper;
 
-    public ArticleProvider() {
+    public ArticleRefProvider() {
 
     }
 
     @Override
     public boolean onCreate() {
-        dbHelper = new ArticleHelper(getContext());
+        dbHelper = new ArticleRefHelper(getContext());
         return (dbHelper != null);
     }
 
@@ -28,12 +28,12 @@ public class ArticleProvider extends ContentProvider {
         try {
             if (id < 0)
                 return db.delete(
-                        ArticleHelper.TABLE_NAME,
+                        ArticleRefHelper.TABLE_NAME,
                         selection, selectionArgs);
             else
                 return db.delete(
-                        ArticleHelper.TABLE_NAME,
-                        ArticleHelper._ID + "=" + id, selectionArgs);
+                        ArticleRefHelper.TABLE_NAME,
+                        ArticleRefHelper._ID + "=" + id, selectionArgs);
         } finally {
             db.close();
         }
@@ -48,7 +48,7 @@ public class ArticleProvider extends ContentProvider {
     public Uri insert(Uri uri, ContentValues values) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         try {
-           long id = db.insertOrThrow(ArticleHelper.TABLE_NAME, null, values);
+           long id = db.insertOrThrow(ArticleRefHelper.TABLE_NAME, null, values);
 
             if (id == -1) {
                 throw new RuntimeException(String.format(
@@ -69,12 +69,12 @@ public class ArticleProvider extends ContentProvider {
         long id = getId(uri);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         if (id < 0) {
-            return  db.query(ArticleHelper.TABLE_NAME,
+            return  db.query(ArticleRefHelper.TABLE_NAME,
                     projection, selection, selectionArgs, null, null,
                     sortOrder);
         } else {
-            return      db.query(ArticleHelper.TABLE_NAME,
-                    projection, ArticleHelper._ID + "=" + id, null, null, null,
+            return      db.query(ArticleRefHelper.TABLE_NAME,
+                    projection, ArticleRefHelper._ID + "=" + id, null, null, null,
                     null);
         }
     }
@@ -87,10 +87,10 @@ public class ArticleProvider extends ContentProvider {
 
         try {
             if (id < 0)
-                return db.update( ArticleHelper.TABLE_NAME, values, selection, selectionArgs);
+                return db.update( ArticleRefHelper.TABLE_NAME, values, selection, selectionArgs);
             else
-                return db.update( ArticleHelper.TABLE_NAME,
-                        values, ArticleHelper._ID + "=" + id, null);
+                return db.update( ArticleRefHelper.TABLE_NAME,
+                        values, ArticleRefHelper._ID + "=" + id, null);
         } finally {
             db.close();
         }

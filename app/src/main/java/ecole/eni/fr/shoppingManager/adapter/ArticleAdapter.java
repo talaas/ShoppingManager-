@@ -24,7 +24,7 @@ public class ArticleAdapter extends ArrayAdapter<ArticleRef> {
     private final Context context;
     private final int ressourceId;
 
-    public ArticleAdapter(Context context, int resource,List<ArticleRef> articles) {
+    public ArticleAdapter(Context context, int resource, List<ArticleRef> articles) {
         super(context, resource, articles);
         this.articles = articles;
         this.context = context;
@@ -43,10 +43,10 @@ public class ArticleAdapter extends ArrayAdapter<ArticleRef> {
 
             convertView = inflater.inflate(ressourceId, parent, false);
 
-            holder.nom = (TextView) convertView.findViewById(R.id.ListArticleName);
-            holder.prix = (TextView) convertView.findViewById(R.id.ListArticlePrice);
-            holder.description = (TextView) convertView.findViewById(R.id.ListArticleDescription);
-            holder.img = (TextView) convertView.findViewById(R.id.ListArticleImg);
+            //holder.nom = (TextView) convertView.findViewById(R.id.listArticleName);
+            //holder.prix = (TextView) convertView.findViewById(R.id.listArticlePrice);
+         //   holder.description = (TextView) convertView.findViewById(R.id.listArticleDescription);
+        //    holder.img = (TextView) convertView.findViewById(R.id.listArticleImg);
 
             convertView.setTag(holder);
         }

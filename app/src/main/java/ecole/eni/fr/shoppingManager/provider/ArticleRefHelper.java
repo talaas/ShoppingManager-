@@ -7,9 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 
 
-public class ArticleHelper extends SQLiteOpenHelper {
+public class ArticleRefHelper extends SQLiteOpenHelper {
 
-    public final static String DATABASE_NAME = "AndroCadoProvider.db";
+    public final static String DATABASE_NAME = "ShoppingManager.db";
     public final static int DATABASE_VERSION = 1;
     private final static String QUERY_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "ARTICLES ("
@@ -56,7 +56,7 @@ public class ArticleHelper extends SQLiteOpenHelper {
     // URI
     public static final Uri CONTENT_URI = Uri.parse(STR_URI);
 
-    public ArticleHelper(Context context) {
+    public ArticleRefHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

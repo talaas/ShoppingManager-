@@ -1,5 +1,7 @@
 package ecole.eni.fr.shoppingManager.beans;
 
+import android.support.v7.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,8 +18,8 @@ public class ListeDeCourse {
     private Date dateCourses;
     private String nomListe;
 
-    public ListeDeCourse(List<ItemListe> articles, float prixTotal, Date dateCourses, String nomListe) {
-        this.articles = articles;
+    public ListeDeCourse(float prixTotal, Date dateCourses, String nomListe) {
+        super();
         this.prixTotal = prixTotal;
         this.dateCourses = dateCourses;
         this.nomListe = nomListe;
