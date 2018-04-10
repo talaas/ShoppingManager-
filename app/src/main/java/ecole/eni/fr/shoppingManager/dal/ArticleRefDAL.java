@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ecole.eni.fr.shoppingManager.beans.ArticleRef;
-import ecole.eni.fr.shoppingManager.provider.ArticleHelper;
+import ecole.eni.fr.shoppingManager.provider.ArticleRefHelper;
 
 
 public class ArticleRefDAL {
@@ -21,7 +21,7 @@ public class ArticleRefDAL {
     }
 
     public void addArticle(ArticleRef article) {
-        context.getContentResolver().insert( ArticleHelper.CONTENT_URI  , constructArticleDB(article));
+        context.getContentResolver().insert( ArticleRefHelper.CONTENT_URI  , constructArticleDB(article));
     }
 
     private ContentValues constructArticleDB(ArticleRef article) {
@@ -39,9 +39,9 @@ public class ArticleRefDAL {
      */
     public List<ArticleRef> getArticles() {
 
-        String[] columns = ArticleHelper.getColumns();
+        String[] columns = ArticleRefHelper.getColumns();
 
-        Cursor cursor = context.getContentResolver().query(ArticleHelper.CONTENT_URI,
+        Cursor cursor = context.getContentResolver().query(ArticleRefHelper.CONTENT_URI,
                                                 columns, null,
                                                 null, null);
 
@@ -70,9 +70,9 @@ public class ArticleRefDAL {
      * @return
      */
     public ArticleRef getArticle(Integer id) {
-        String[] columns = ArticleHelper.getColumns();
+        String[] columns = ArticleRefHelper.getColumns();
         Cursor cursor = context.getContentResolver().query(
-                ArticleHelper.CONTENT_URI, columns,
+                ArticleRefHelper.CONTENT_URI, columns,
                 "_ID=?"
                 , new String[]{String.valueOf(id)}, null);
         ArticleRef article = null;
@@ -98,7 +98,7 @@ public class ArticleRefDAL {
      */
     public void setArticle(Integer articleId, ArticleRef article) {
 
-        context.getContentResolver().update(ArticleHelper.CONTENT_URI, constructArticleDB(article),
+        context.getContentResolver().update(ArticleRefHelper.CONTENT_URI, constructArticleDB(article),
                 "_ID=?"
                 , new String[]{String.valueOf(articleId)});
 
@@ -121,7 +121,7 @@ public class ArticleRefDAL {
      * @param articleId
      */
     public void deleteArticle(int articleId) {
-        context.getContentResolver().delete(ArticleHelper.CONTENT_URI,"_ID=?"
+        context.getContentResolver().delete(ArticleRefHelper.CONTENT_URI,"_ID=?"
                 , new String[]{String.valueOf(articleId)});
     }
 
