@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.util.Date;
 
 import ecole.eni.fr.shoppingManager.beans.ArticleRef;
+import ecole.eni.fr.shoppingManager.beans.ListeDeCourse;
 import ecole.eni.fr.shoppingManager.dal.ArticleRefDAL;
 
 
@@ -38,8 +39,8 @@ public class CreateOrEditActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        editName = (TextView) findViewById(R.id.Form_Create_Edit_Label);
-        date = (TextView) findViewById(R.id.Form_Create_Edit_Date);
+        editName = (TextView) findViewById(R.id.form_Create_Edit_Label);
+        date = (TextView) findViewById(R.id.dateEdit);
 
         articleDAL = new ArticleRefDAL(CreateOrEditActivity.this);
     }
@@ -102,15 +103,17 @@ public class CreateOrEditActivity extends AppCompatActivity {
 
     public void onClickButtonAjouter(View view) {
 // TODO
-//        String name = editName.getText().toString();
-//        String description = editDescription.getText().toString();
-//        Float note = rbNote.getRating();
-//        Float price = Float.valueOf(editPrice.getText().toString());
-//        String url = editUrl.getText().toString();
-//        nouvelArticle = new Article(name, price, description, note, url, false);
-//        InsertOrUpdate majDAO = new InsertOrUpdate();
-//        majDAO.execute();
+        String name = editName.getText().toString();
+        String[] dateSaisie = date.getText().toString().split("/|-");
+        Date dateVal = new Date(
+                Integer.valueOf(dateSaisie[2]),
+                Integer.valueOf(dateSaisie[1]),
+                Integer.valueOf(dateSaisie[0]),
+                        12,
+                        00);
 
+        ListeDeCourse listeSave = new ListeDeCourse(null, dateVal, name);
+        // TODO base
     }
 
     @Override

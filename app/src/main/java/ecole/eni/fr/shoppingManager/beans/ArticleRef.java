@@ -18,26 +18,17 @@ public class ArticleRef implements Parcelable {
         this.img = img;
     }
 
-    public ArticleRef(Integer id, String nom, Float prix, String description, String img) {
-        this.id = id;
-        this.nom = nom;
-        this.prix = prix;
-        this.description = description;
-        this.img = img;
-    }
+//    public ArticleRef(Integer id, String nom, Float prix, String description, String img) {
+//        this.id = id;
+//        this.nom = nom;
+//        this.prix = prix;
+//        this.description = description;
+//        this.img = img;
+//    }
 
     protected ArticleRef(Parcel in) {
-        if (in.readByte() == 0) {
-            id = null;
-        } else {
-            id = in.readInt();
-        }
         nom = in.readString();
-        if (in.readByte() == 0) {
-            prix = null;
-        } else {
-            prix = in.readFloat();
-        }
+        prix = in.readFloat();
         description = in.readString();
         img = in.readString();
     }

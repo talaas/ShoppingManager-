@@ -15,9 +15,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import ecole.eni.fr.shoppingManager.R;
+import ecole.eni.fr.shoppingManager.beans.ItemListe;
 
 /**
  * Created by stalaa2016 on 09/04/2018.
@@ -25,25 +28,48 @@ import ecole.eni.fr.shoppingManager.R;
 
 public class ItemListAdapter extends ArrayAdapter<String> {
 
-    private String[] nomArticle;
-    private String[] description;
-    private Integer[] qte;
-    private Integer[] prix;
-    private Integer[] image;
-    private boolean[] isBuy;
+    private List<String> nomArticle = new ArrayList<>();
+    private List<String> description = new ArrayList<>();
+    private List<Integer> qte = new ArrayList<>();
+    private List<Float> prix = new ArrayList<>();
+    private List<Integer> image = new ArrayList<>();
+    private List<Boolean> isBuy = new ArrayList<>();
     private Activity context;
 
 
-public ItemListAdapter(Activity context, String[] nomArticle, String[] description, Integer[] qte, Integer[] prix, Integer[] image, boolean[] isBuy){
-    super(context, R.layout.activity_list_main, nomArticle);
-    this.nomArticle = nomArticle;
-    this.description = description;
-    this.qte = qte;
-    this.prix = prix;
-    this.image = image;
-    this.isBuy = isBuy;
-    this.context = context;
-}
+    public ItemListAdapter(Activity context, String[] nomArticle, String[] description, Integer[] qte, Float[] prix, Integer[] image, boolean[] isBuy){
+        super(context, R.layout.activity_list_main, nomArticle);
+        this.nomArticle = Arrays.asList(nomArticle);
+        this.description = Arrays.asList(description);
+        this.qte = Arrays.asList(qte);
+        this.prix = Arrays.asList(prix);
+        this.image = Arrays.asList(image);
+
+        this.isBuy = new ArrayList<>();
+        for(boolean b : isBuy) {
+            this.isBuy.add(b);
+        }
+
+        this.context = context;
+    }
+
+    public ItemListAdapter(Activity context, List<ItemListe> itemListe, String[] nomArticle){
+        super(context, R.layout.activity_list_main, nomArticle);
+
+        for(ItemListe i : itemListe) {
+            if(i.getArticle() != null) {
+                this.nomArticle.add(i.getArticle().getNom());
+                this.description.add(i.getArticle().getDescription());
+            }
+            this.qte.add(i.getQte());
+            this.prix.add(i.getPrixTotal());
+            //this.image.add(i.getArticle().getImg());
+            this.isBuy.add(i.isInTheCaddie());
+        }
+
+        this.context = context;
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -61,37 +87,32 @@ public ItemListAdapter(Activity context, String[] nomArticle, String[] descripti
 
 
         }
-        viewHolder.image.setImageResource(image[position]);
-        viewHolder.article.setText(nomArticle[position]);
-        viewHolder.description.setText(description[position]);
-        viewHolder.qte.setText(String.valueOf(qte[position]));
-        viewHolder.prix.setText(String.valueOf(prix[position])+"€");
-
-
-
-
-        viewHolder.isBuy.setChecked(isBuy[position]);
+       // viewHolder.image.setImageResource(image.get(position));
+        viewHolder.article.setText(nomArticle.get(position));
+        viewHolder.description.setText(description.get(position));
+        viewHolder.qte.setText(String.valueOf(qte.get(position)));
+        viewHolder.prix.setText(String.valueOf(prix.get(position))+"€");
+        viewHolder.isBuy.setChecked(isBuy.get(position));
 
         return r;
-
-
     }
 
-    class ViewHolder{
+    public class ViewHolder{
 
-        TextView article;
-        TextView description;
-        TextView prix;
-        TextView qte;
-        ImageView image;
-        CheckBox isBuy;
+        public TextView article;
+        public TextView description;
+        public TextView prix;
+        public TextView qte;
+        public ImageView image;
+        public CheckBox isBuy;
+
         ViewHolder(View v){
-            article=v.findViewById(R.id.article);
-            description=v.findViewById(R.id.description);
-            prix=v.findViewById(R.id.prix);
-            qte=v.findViewById(R.id.qte);
-            image=v.findViewById(R.id.image);
-            isBuy=v.findViewById(R.id.isBuy);
+            article = (TextView) v.findViewById(R.id.article);
+            description = (TextView) v.findViewById(R.id.description);
+            prix = (TextView) v.findViewById(R.id.prix);
+            qte = (TextView) v.findViewById(R.id.qte);
+            image = (ImageView) v.findViewById(R.id.image);
+            isBuy = (CheckBox) v.findViewById(R.id.isBuy);
         }
     }
 

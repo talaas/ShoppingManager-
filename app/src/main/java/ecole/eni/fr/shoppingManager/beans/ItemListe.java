@@ -1,10 +1,15 @@
 package ecole.eni.fr.shoppingManager.beans;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+
 /**
  * Created by lnorjoux2016 on 09/04/2018.
  */
 
-public class ItemListe {
+public class ItemListe implements Parcelable {
 
     private int id;
     private int qte;
@@ -18,6 +23,25 @@ public class ItemListe {
         this.prixTotal = article.getPrix() * qte;
         this.article = article;
     }
+
+    protected ItemListe(Parcel in) {
+
+        isInTheCaddie = (Boolean) in.readValue(null);
+        prixTotal = in.readFloat();
+        article = in.readParcelable(ArticleRef.class.getClassLoader());
+    }
+
+    public static final Creator<ItemListe> CREATOR = new Creator<ItemListe>() {
+        @Override
+        public ItemListe createFromParcel(Parcel in) {
+            return new ItemListe(in);
+        }
+
+        @Override
+        public ItemListe[] newArray(int size) {
+            return new ItemListe[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -57,5 +81,17 @@ public class ItemListe {
 
     public void setArticle(ArticleRef article) {
         this.article = article;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(isInTheCaddie);
+        dest.writeFloat(prixTotal);
+        dest.writeParcelable(article, flags);
     }
 }

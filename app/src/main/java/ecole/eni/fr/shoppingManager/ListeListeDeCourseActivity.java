@@ -1,7 +1,7 @@
 package ecole.eni.fr.shoppingManager;
 
 import android.content.Intent;
-import android.graphics.Movie;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -23,7 +23,7 @@ import ecole.eni.fr.shoppingManager.beans.ListeDeCourse;
 
 public class ListeListeDeCourseActivity extends AppCompatActivity {
 
-    private List<ListeDeCourse> movieList = new ArrayList<>();
+    private List<ListeDeCourse> listeListeDeCourse = new ArrayList<>();
     private RecyclerView recyclerView;
     private ListeDeCourseAdapter mAdapter;
 
@@ -36,7 +36,7 @@ public class ListeListeDeCourseActivity extends AppCompatActivity {
 
     recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-    mAdapter = new ListeDeCourseAdapter(this, movieList);
+    mAdapter = new ListeDeCourseAdapter(this, listeListeDeCourse);
 
     recyclerView.setHasFixedSize(true);
 
@@ -63,12 +63,13 @@ public class ListeListeDeCourseActivity extends AppCompatActivity {
     recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
         @Override
         public void onClick(View view, int position) {
-            ListeDeCourse movie = movieList.get(position);
+            ListeDeCourse listeSel = listeListeDeCourse.get(position);
 
-            Intent intention = new Intent(ListeListeDeCourseActivity.this, activity_list_main.class);
-            startActivity(intention);
+            Intent intent = new Intent(ListeListeDeCourseActivity.this, activity_list_main.class);
+            intent.putExtra("nbArticle", listeSel.getArticles().size());
+            intent.putExtra("listeSel", listeSel);
 
-            Toast.makeText(getApplicationContext(), movie.getNomListe() + " is selected!", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
         }
 
         @Override
@@ -77,17 +78,15 @@ public class ListeListeDeCourseActivity extends AppCompatActivity {
         }
     }));
 
-    prepareMovieData();
+    prepareArticleData();
 }
 
     public void onClickAjouterButton(View view) {
         Intent intent = new Intent(ListeListeDeCourseActivity.this, CreateOrEditActivity.class);
         startActivity(intent);
     }
-        /**
-         * Prepares sample data to provide data set to adapter
-         */
-    private void prepareMovieData() {
+
+    private void prepareArticleData() {
 
         ArticleRef article1 = new ArticleRef("NOMARTICLE1", 1.11f, "LADESCRIPTION", "img");
         ArticleRef article2 = new ArticleRef("NOMARTICLE2", 2.22f, "LADESCRIPTION", "img");
@@ -132,19 +131,19 @@ public class ListeListeDeCourseActivity extends AppCompatActivity {
 
         // 6.66
         ListeDeCourse liste1 = new ListeDeCourse(itemsListe1, new Date(), "LENOM1");
-        movieList.add(liste1);
+        listeListeDeCourse.add(liste1);
 
         // 11.1
         ListeDeCourse liste2 = new ListeDeCourse(itemsListe2, new Date(), "LENOM2");
-        movieList.add(liste2);
+        listeListeDeCourse.add(liste2);
 
         // 19.98
         ListeDeCourse liste3 = new ListeDeCourse(itemsListe3, new Date(), "LENOM3");
-        movieList.add(liste3);
+        listeListeDeCourse.add(liste3);
 
         // 25.53 TODO arrondi
         ListeDeCourse liste4 = new ListeDeCourse(itemsListe4, new Date(), "LENOM4");
-        movieList.add(liste4);
+        listeListeDeCourse.add(liste4);
 
         // notify adapter about data set changes
         // so that it will render the list with new data
