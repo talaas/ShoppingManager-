@@ -88,25 +88,25 @@ public class ListeListeDeCourseActivity extends AppCompatActivity {
 
     private void prepareArticleData() {
 
-        ArticleRef article1 = new ArticleRef("NOMARTICLE1", 1.11f, "LADESCRIPTION", "img");
-        ArticleRef article2 = new ArticleRef("NOMARTICLE2", 2.22f, "LADESCRIPTION", "img");
-        ArticleRef article3 = new ArticleRef("NOMARTICLE3", 3.33f, "LADESCRIPTION", "img");
-        ArticleRef article4 = new ArticleRef("NOMARTICLE4", 4.44f, "LADESCRIPTION", "img");
-        ArticleRef article5 = new ArticleRef("NOMARTICLE5", 5.55f, "LADESCRIPTION", "img");
-        ArticleRef article6 = new ArticleRef("NOMARTICLE6", 6.66f, "LADESCRIPTION", "img");
-        ArticleRef article7 = new ArticleRef("NOMARTICLE7", 7.77f, "LADESCRIPTION", "img");
-        ArticleRef article8 = new ArticleRef("NOMARTICLE8", 8.88f, "LADESCRIPTION", "img");
-        ArticleRef article9 = new ArticleRef("NOMARTICLE9", 9.99f, "LADESCRIPTION", "img");
+        ArticleRef article1 = new ArticleRef("NOMARTICLE1", 1.11f, "LADESCRIPTION", 1);
+        ArticleRef article2 = new ArticleRef("NOMARTICLE2", 2.22f, "LADESCRIPTION", 1);
+        ArticleRef article3 = new ArticleRef("NOMARTICLE3", 3.33f, "LADESCRIPTION", 1);
+        ArticleRef article4 = new ArticleRef("NOMARTICLE4", 4.44f, "LADESCRIPTION", 1);
+        ArticleRef article5 = new ArticleRef("NOMARTICLE5", 5.55f, "LADESCRIPTION", 1);
+        ArticleRef article6 = new ArticleRef("NOMARTICLE6", 6.66f, "LADESCRIPTION", 1);
+        ArticleRef article7 = new ArticleRef("NOMARTICLE7", 7.77f, "LADESCRIPTION", 1);
+        ArticleRef article8 = new ArticleRef("NOMARTICLE8", 8.88f, "LADESCRIPTION", 1);
+        ArticleRef article9 = new ArticleRef("NOMARTICLE9", 9.99f, "LADESCRIPTION", 1);
 
-        ItemListe item1 = new ItemListe(1, false, article1);
-        ItemListe item2 = new ItemListe(1, false, article2);
-        ItemListe item3 = new ItemListe(1, false, article3);
-        ItemListe item4 = new ItemListe(1, false, article4);
-        ItemListe item5 = new ItemListe(1, false, article5);
-        ItemListe item6 = new ItemListe(1, false, article6);
-        ItemListe item7 = new ItemListe(1, false, article7);
-        ItemListe item8 = new ItemListe(1, false, article8);
-        ItemListe item9 = new ItemListe(1, false, article9);
+        ItemListe item1 = new ItemListe(1, 0, article1);
+        ItemListe item2 = new ItemListe(1, 0, article2);
+        ItemListe item3 = new ItemListe(1, 0, article3);
+        ItemListe item4 = new ItemListe(1, 0, article4);
+        ItemListe item5 = new ItemListe(1, 0, article5);
+        ItemListe item6 = new ItemListe(1, 0, article6);
+        ItemListe item7 = new ItemListe(1, 0, article7);
+        ItemListe item8 = new ItemListe(1, 0, article8);
+        ItemListe item9 = new ItemListe(1, 0, article9);
 
         List<ItemListe> itemsListe1 = new ArrayList<>();
         List<ItemListe> itemsListe2 = new ArrayList<>();

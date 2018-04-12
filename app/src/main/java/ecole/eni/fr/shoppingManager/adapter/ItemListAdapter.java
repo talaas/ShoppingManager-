@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import ecole.eni.fr.shoppingManager.R;
+import ecole.eni.fr.shoppingManager.dal.DataBaseManager;
 import ecole.eni.fr.shoppingManager.beans.ItemListe;
 
 /**
@@ -33,11 +34,11 @@ public class ItemListAdapter extends ArrayAdapter<String> {
     private List<Integer> qte = new ArrayList<>();
     private List<Float> prix = new ArrayList<>();
     private List<Integer> image = new ArrayList<>();
-    private List<Boolean> isBuy = new ArrayList<>();
+    private List<Integer> isBuy = new ArrayList<>();
     private Activity context;
 
 
-    public ItemListAdapter(Activity context, String[] nomArticle, String[] description, Integer[] qte, Float[] prix, Integer[] image, boolean[] isBuy){
+    public ItemListAdapter(Activity context, String[] nomArticle, String[] description, Integer[] qte, Float[] prix, Integer[] image, Integer[] isBuy){
         super(context, R.layout.activity_list_main, nomArticle);
         this.nomArticle = Arrays.asList(nomArticle);
         this.description = Arrays.asList(description);
@@ -46,7 +47,7 @@ public class ItemListAdapter extends ArrayAdapter<String> {
         this.image = Arrays.asList(image);
 
         this.isBuy = new ArrayList<>();
-        for(boolean b : isBuy) {
+        for(Integer b : isBuy) {
             this.isBuy.add(b);
         }
 
@@ -87,13 +88,12 @@ public class ItemListAdapter extends ArrayAdapter<String> {
 
 
         }
-       // viewHolder.image.setImageResource(image.get(position));
+        viewHolder.image.setImageResource(image.get(position));
         viewHolder.article.setText(nomArticle.get(position));
         viewHolder.description.setText(description.get(position));
         viewHolder.qte.setText(String.valueOf(qte.get(position)));
         viewHolder.prix.setText(String.valueOf(prix.get(position))+"€");
-        viewHolder.isBuy.setChecked(isBuy.get(position));
-
+        viewHolder.isBuy.setText(String.valueOf(isBuy.get(position)));
         return r;
     }
 

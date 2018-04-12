@@ -9,28 +9,31 @@ public class ArticleRef implements Parcelable {
     private String nom;
     private Float prix;
     private String description;
-    private String img;
+    private Integer img;
 
-    public ArticleRef(String nom, Float prix, String description, String img) {
+    public ArticleRef() {
+    }
+
+    public ArticleRef(String nom, Float prix, String description, Integer img) {
         this.nom = nom;
         this.prix = prix;
         this.description = description;
         this.img = img;
     }
 
-//    public ArticleRef(Integer id, String nom, Float prix, String description, String img) {
-//        this.id = id;
-//        this.nom = nom;
-//        this.prix = prix;
-//        this.description = description;
-//        this.img = img;
-//    }
+    public ArticleRef(Integer id, String nom, Float prix, String description, Integer img) {
+        this.id = id;
+        this.nom = nom;
+        this.prix = prix;
+        this.description = description;
+        this.img = img;
+    }
 
     protected ArticleRef(Parcel in) {
         nom = in.readString();
         prix = in.readFloat();
         description = in.readString();
-        img = in.readString();
+        img = in.readInt();
     }
 
     public static final Creator<ArticleRef> CREATOR = new Creator<ArticleRef>() {
@@ -77,11 +80,11 @@ public class ArticleRef implements Parcelable {
         this.description = description;
     }
 
-    public String getImg() {
+    public Integer getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(Integer img) {
         this.img = img;
     }
 
@@ -95,7 +98,7 @@ public class ArticleRef implements Parcelable {
         dest.writeString(nom);
         dest.writeFloat(prix);
         dest.writeString(description);
-        dest.writeString(img);
+        dest.writeInt(img);
     }
 
 

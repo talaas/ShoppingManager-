@@ -76,15 +76,15 @@ public class ListeDeCoursesDAL {
                 "_ID=?"
                 , new String[]{String.valueOf(id)}, null);
         ArticleRef article = null;
-        if (cursor != null && cursor.moveToFirst()) {
-            /*article = new ArticleRef(cursor.getInt(cursor.getColumnIndex("_ID")),
+      /*  if (cursor != null && cursor.moveToFirst()) {
+            article = new ArticleRef(cursor.getInt(cursor.getColumnIndex("_ID")),
                     cursor.getString(cursor.getColumnIndex("NOM")),
                     cursor.getFloat(cursor.getColumnIndex("PRIX")),
                     cursor.getString(cursor.getColumnIndex("DESCRIPTION")),
-                    cursor.getString(cursor.getColumnIndex("IMG")));*/
+                    cursor.getString(cursor.getColumnIndex("IMG")));
 
             cursor.close();
-        }
+        }*/
 
 
         return article;

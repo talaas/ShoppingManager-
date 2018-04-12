@@ -54,7 +54,7 @@ public class ArticleRefDAL {
                 String nom = cursor.getString(cursor.getColumnIndex("NOM"));
                 Float prix = cursor.getFloat(cursor.getColumnIndex("PRIX"));
                 String description = cursor.getString(cursor.getColumnIndex("DESCRIPTION"));
-                String img = cursor.getString(cursor.getColumnIndex("IMG"));
+                Integer img = cursor.getInt(cursor.getColumnIndex("IMG"));
                 articles.add(new ArticleRef(nom, prix, description, img));
             }while (cursor.moveToNext());
 
@@ -76,15 +76,15 @@ public class ArticleRefDAL {
                 "_ID=?"
                 , new String[]{String.valueOf(id)}, null);
         ArticleRef article = null;
-        if (cursor != null && cursor.moveToFirst()) {
-            /*article = new ArticleRef(cursor.getInt(cursor.getColumnIndex("_ID")),
+       /* if (cursor != null && cursor.moveToFirst()) {
+            article = new ArticleRef(cursor.getInt(cursor.getColumnIndex("_ID")),
                     cursor.getString(cursor.getColumnIndex("NOM")),
                     cursor.getFloat(cursor.getColumnIndex("PRIX")),
                     cursor.getString(cursor.getColumnIndex("DESCRIPTION")),
                     cursor.getString(cursor.getColumnIndex("IMG")));
 
-            cursor.close();*/
-        }
+            cursor.close();
+        }*/
 
 
         return article;
